@@ -1,0 +1,47 @@
+.indexContainer{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    header{
+        height:.55rem;
+        background: #e54847;
+        font-size: .18rem;
+        text-align: center;
+        line-height: .5rem;
+        color: #fff;
+    }
+    main{
+        flex: 1;
+        overflow: hidden;
+       
+    }
+
+
+    footer{
+        height:.5rem;
+        @include border(.5 0 0 0,#d8d8d8);
+        div{
+            height:100%;
+            display: flex;
+            div{
+                flex:1;
+                flex-direction: column;
+                background: #f6f6f6;
+                text-align: center;
+                font-size: .18rem;
+                display: flex;
+                align-items:center;
+                justify-content: center;
+                color: #696969;
+               .nav-text{
+                   line-height: .12rem;
+                   font-size:.1rem;
+               }
+                &.active{
+                    background:#e7f3f0;
+                    color:#f03d37;
+                }
+            }
+        }
+    }
+}

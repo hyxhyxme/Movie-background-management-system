@@ -1,0 +1,85 @@
+<div class="row mt">
+    <div class="col-lg-12">
+        <h4><i class="fa fa-angle-right"></i> 添加电影</h4>
+        <div class="form-panel">
+            <div class="form">
+                <form class="cmxform form-horizontal style-form" id="movie-form" method="post" action="/api/movie/"
+                    enctype="multipart/form-data">
+                  <!--   <div class="form-group last">
+                        <label class="control-label col-md-3">电影宣传页</label>
+                        <div class="col-md-9">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                                </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail"
+                                    style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                <div>
+                                    <span class="btn btn-theme02 btn-file">
+                                        <span class="fileupload-new"><i class="fa fa-paperclip"></i>选择图片</span>
+                                        <span class="fileupload-exists"><i class="fa fa-undo"></i> 重新选择</span>
+                                        <input type="file" class="default" />
+                                    </span>
+                                    <a href="advanced_form_components.html#" class="btn btn-theme04 fileupload-exists"
+                                        data-dismiss="fileupload"><i class="fa fa-trash-o"></i> 移除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group ">
+                        <label for="movieLogo" class="control-label col-lg-2">电影宣传页</label>
+                        <div class="col-lg-10">
+                            <input type="file" class=" form-control" id="movieLogo" name="movieLogo" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieName" class="control-label col-lg-2">电影名称</label>
+                        <div class="col-lg-10">
+                            <input class=" form-control" id="movieName" name="movieName" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieScore" class="control-label col-lg-2">评分</label>
+                        <div class="col-lg-10">
+                            <input class=" form-control" id="movieScore" name="movieScore" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieStar" class="control-label col-lg-2">主演</label>
+                        <div class="col-lg-10">
+                            <input class="form-control " id="movieStar" name="movieStar" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieType" class="control-label col-lg-2">类型</label>
+                        <div class="col-lg-10">
+                            <input class="form-control " id="movieType" name="movieType" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">上映时间</label>
+                        <div class="col-md-4">
+                            <div data-date="2014-01-18T15:00:00Z" class="input-group date form_datetime-meridian">
+                                <input type="text" class="form-control" readonly="" size="16">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-theme02 date-reset"><i
+                                            class="fa fa-times"></i></button>
+                                    <button type="button" class="btn btn-theme date-set"><i
+                                            class="fa fa-calendar"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-theme04" id="movie-add-back" type="button">取消</button>
+                            <button class="btn btn-theme" id="movie-add-submit" type="submit">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /form-panel -->
+    </div>
+    <!-- /col-lg-12 -->
+</div>

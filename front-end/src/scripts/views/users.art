@@ -1,0 +1,10 @@
+<ul class="nav pull-right top-menu">
+    {{if username}}
+    <li class="username"><a class="username" href="#"></a>你好，{{username}}</a></li>
+    <li class="exit"> <a class="logout" href="#">退出</a></li>
+    {{else}}
+    <li><a class="logout btn-login" href="#">登录</a></li>
+    <li><a class="logout btn-register" href="#">注册</a></li>
+    {{/if}}
+</ul>
+
