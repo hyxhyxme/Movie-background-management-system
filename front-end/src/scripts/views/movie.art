@@ -2,45 +2,51 @@
   <div class="col-md-12">
     <div class="content-panel">
       <table class="table table-striped table-advance table-hover">
-        <h4>
-          <p><i class="fa fa-angle-right"></i> 电影列表</p> <button type="button" class="btn btn-success" id="btn-add"><i
-              class="fa fa-plus"></i> 添加</button>
-        </h4>
-        <div class="form-group">
-          <div class="search">
+        <div class="form-group intop">
+          <h4>
+            <p><i class="fa fa-angle-right"></i> 电影列表</p> <button type="button" class="btn btn-success" id="btn-add"><i
+                class="fa fa-plus"></i> 添加</button>
+          </h4>
+          <div class="self-search">
             <input type="text" class="form-control round-form form-search" placeholder="搜索">
           </div>
         </div>
         <hr>
         <thead>
           <tr>
-            <th id="index"><i class="fa fa-sort-numeric-asc"></i> 序号</th>
-            <th id="movieLogo"><i class="fa fa-bullhorn"></i> 电影封面</th>
-            <th id="movieScore"><i class="fa video-camera"></i> 电影名称</th>
-            <th id="movieScore"><i class="fa fa-start"></i>评分</th>
-            <th id="movieStar"><i class="fa fa-user"></i> 主演</th>
-            <th id="movieType"><i class="fa fa-bookmark"></i> 类型</th>
-            <th id="movieTime"><i class=" fa fa-clock-o"></i> 上映时间</th>
-            <th></th>
+            <th style="width:100px;" id="index"> 序号</th>
+            <th style="width:100px;" id="movieId"> 电影ID</th>
+            <th style="width:100px;" id="movieLogo"> 电影封面</th>
+            <th style="width:100px;" id="movieScore"> 电影名称</th>
+            <th style="width:100px;" id="movieScore">评分</th>
+            <th style="width:100px;" id="movieStar">主演</th>
+            <th style="width:100px;" id="movieType"> 类型</th>
+            <th style="width:100px;" id="movieLiving"> 是否上映</th>
+            <th style="width:100px;" id="movieWant"> 想看人数</th>
+            <th style="width:100px;" id="movieInfo"> 上映信息</th>
+            <th style="width:100px;"></th>
           </tr>
         </thead>
         <tbody>
           {{each list}}
           <tr>
-            <td>{{$index + 1}}</td>
-            <td>
+            <td style="width:100px;">{{$index + 1}}</td>
+            <td style="width:100px;">{{$value.movieID}}</td>
+            <td style="width:100px;">
               {{if $value.movieLogo}}
               <img style="width:32px;height:44px" src="http://localhost:3000/uploads/{{$value.movieLogo}}" alt="">
               {{else}}
               <img style="width:32px;height:44px" src="http://placehold.it/32x44" alt="">
               {{/if}}
             </td>
-            <td class="hidden-phone">{{$value.movieName}}</td>
-            <td>{{$value.movieScore}}</td>
-            <td>{{$value.movieStar}}</td>
-            <td>{{$value.movieType}}</td>
-            <td>{{$value.movieTime}}</td>
-            <td>
+            <td style="width:100px;"  class="hidden-phone">{{$value.movieName}}</td>
+            <td style="width:100px;">{{$value.movieScore}}</td>
+            <td style="width:100px;">{{$value.movieStar}}</td>
+            <td style="width:100px;">{{$value.movieType}}</td>
+            <td style="width:100px;">{{$value.movieLiving}}</td>
+            <td style="width:100px;">{{$value.movieWant}}</td>
+            <td style="width:100px;">{{$value.movieInfo}}</td>
+            <td style="width:100px;">
               <button data-id="{{$value._id}}" class="btn btn-primary btn-xs btn-update"><i
                   class="fa fa-pencil"></i></button>
               <button data-id="{{$value._id}}" data-img="{{$value.movieLogo}}"
@@ -52,17 +58,19 @@
       </table>
        {{if pageTotal > 1}}
         <div class="dataTables_paginate paging_bootstrap pagination">
-          <ul>
-            <li class="prev"><a class="page-prev" href="javascript:void(0)">← Previous</a></li>
-            {{each pageCount}}
-              {{if currentPage === $value}}
-                <li class="active"><a class="page-number" href="javascript:void(0)">{{$value}}</a></li>
-              {{else}}
-                <li><a class="page-number" href="javascript:void(0)">{{$value}}</a></li>
-              {{/if}}
-            {{/each}}
-            <li class="next"><a class="page-next" href="javascript:void(0)">Next → </a></li>
-          </ul>
+          <div>
+            <ul>
+              <li class="prev"><a class="page-prev" href="javascript:void(0)">上一页</a></li>
+              {{each pageCount}}
+                {{if currentPage == $value}}
+                  <li class="active"><a class="page-number" href="javascript:void(0)">{{$value}}</a></li>
+                {{else}}
+                  <li><a class="page-number" href="javascript:void(0)">{{$value}}</a></li>
+                {{/if}}
+              {{/each}}
+              <li class="next"><a class="page-next" href="javascript:void(0)">下一页</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       {{/if}}

@@ -1,0 +1,20 @@
+
+{{if username}}
+    {{each messagelist}}
+        {{if $value.maoyan}}
+            <li class="c-maoyan">
+                <img class="img-circle" src="../../assets/img/friends/fr-02.jpg" width="32">
+                <span> {{$value.maoyan}}</span>
+            </li>
+        {{else}}
+            <li class="c-houtai">
+                <img class="img-circle" src="../../assets/img/friends/fr-05.jpg" width="32">
+                <span>{{$value.houtai}}</span>
+            </li>
+        {{/if}}
+        
+    {{/each}}
+{{else}}
+    <li>未登录</li>
+{{/if}}
+

@@ -1,9 +1,12 @@
 import usersView from '../views/users.art'
+import userAsideView from '../views/user-aside.art'
 import httpModel from '../models/http'
-import store from 'store'
+//import store from 'store'
+
 class Users{
     constructor(){
         this.account = ''
+        this.movieLogo = ''
         this.isLogin = false
         this.username = ''
         this.render()
@@ -17,7 +20,8 @@ class Users{
             username:this.username
         })
         $('.users').html(html)
-        
+        this.asideRender()
+
         //隐藏注册登录界面
         $('.form-login').css('display','none')
 
@@ -50,6 +54,13 @@ class Users{
             $('.form-login').css('display', 'none')
         })
        
+        //聊天按钮点击事件
+        $('#messages').on('click',function(){
+            $('.form-login').css('display','none')
+            $('.messages').css('display','block')
+        })
+
+
         //侧边菜单的切换事件
         $('.fa-bars').click(function () {
 
@@ -74,6 +85,18 @@ class Users{
             }
           });
     }
+
+    asideRender(){
+        console.log(this.movieLogo);
+        
+        let asideHtml = userAsideView({
+            account: this.account, 
+            username : this.username,
+            movieLogo : this.movieLogo
+        })
+        $('#nav-accordion p').html(asideHtml)
+        
+    }
     async login(url){
         let data = $('#user-login').serialize()
         let result = await httpModel.get({
@@ -82,8 +105,10 @@ class Users{
             data
         })
         if(result.ret){
+            
             this.handleLoginSucc(result)
             $('.form-login').css('display','none')
+
         }
         else{
             $('.tips-login').html(result.data.message)
@@ -130,13 +155,17 @@ class Users{
         $('#user-register')[0].reset()
     }
     handleLoginSucc(result){
+        this.account = result.data.account
+        this.username = result.data.username
+        this.movieLogo = result.data.movieLogo
+        this.isLogin =  true
         $('#user-login')[0].reset()
         //重新渲染页面
         let html = usersView({
             username:result.data.username
         })
         $('.users').html(html)
-        
+        this.asideRender()
         //注销按钮点击事件
         $('.exit').on('click',function(){
             this.render()
@@ -151,14 +180,17 @@ class Users{
         this.isLogin = false
         this.username = ''
         this.account = ''
+        this.movieLogo = ''
         //然后再判断是否登录
         let result = await httpModel.get({
             url:'/api/users/isLogin'
         })
         if(result.ret){
+          
             this.username = result.data.username
             this.account = result.data.account
             this.isLogin = true
+            this.movieLogo = result.data.movieLogo
         }
     }
     

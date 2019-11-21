@@ -4,6 +4,8 @@
         top.location.href = document.location.href ;
     }
     $(function(){
+        console.log(1);
+        
         window.prettyPrint && prettyPrint();
         $('.default-date-picker').datepicker({
             format: 'mm-dd-yyyy'

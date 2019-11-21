@@ -4,7 +4,7 @@ import movieAddView from '../views/movie-add.art'
 import movieUpdateView from '../views/movie-update.art'
 const _  =  require('lodash')
 
-let count = 5 
+let count = 8
 let currentPage = 1
 
 function _handlePageNumberClick(req,res,obj,type,pageCount){
@@ -26,6 +26,7 @@ function _handleAddClick(res){
     $('#btn-add').on('click',()=>{
 
         res.go('/movie_add')
+
     })
 }
 
@@ -117,8 +118,6 @@ export const list = async (req,res,next)=>{
             count
         }
     })
-    
-   
 
     if(result.ret){
          //判断result.data.list是否为空数组，即是否有值
@@ -140,7 +139,7 @@ export const list = async (req,res,next)=>{
         }
 
         let pageCount = _.range(1,Math.ceil(result.data.list.total/count) + 1)
-        let {list} = result.data.list
+        let {list} = result.data.list   
         res.render(movieView({
             list,
             pageCount,
@@ -191,6 +190,7 @@ export const add = async (req,res,next)=>{
     $('#movie-add-back').on('click',()=>{
         res.go('/movie')
     })
+
 }
 
 export const update = async(req, res, next)=>{

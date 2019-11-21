@@ -88,68 +88,11 @@
         </li>
         <!-- settings end -->
         <!-- inbox dropdown start-->
-        <li id="header_inbox_bar" class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+        <li id="messages" class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);">
             <i class="fa fa-envelope-o"></i>
             <span class="badge bg-theme">5</span>
           </a>
-          <ul class="dropdown-menu extended inbox">
-            <div class="notify-arrow notify-arrow-green"></div>
-            <li>
-              <p class="green">You have 5 new messages</p>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="../../assets/img/ui-zac.jpg"></span>
-                <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                </span>
-                <span class="message">
-                  Hi mate, how is everything?
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="../../assets/img/ui-divya.jpg"></span>
-                <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                </span>
-                <span class="message">
-                  Hi, I need your help with this.
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="../../assets/img/ui-danro.jpg"></span>
-                <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                </span>
-                <span class="message">
-                  Love your new Dashboard.
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="../../assets/img/ui-sherman.jpg"></span>
-                <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                </span>
-                <span class="message">
-                  Please, answer asap.
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">See all messages</a>
-            </li>
-          </ul>
         </li>
         <!-- inbox dropdown end -->
         <!-- notification dropdown start-->
@@ -247,6 +190,22 @@
               
           </div>
       </form>
+      <form class="form-login messages" id="user-messages" action="">
+          <h2 class="form-login-heading">客户小猫</h2>
+          <div class="login-wrap message-show">
+              <div class="message-content">
+                  <ul>
+
+                  </ul>
+              </div>
+              <div class="btns">
+                <input class="send-content" type="text"><input type="button" class="btn-send" value="发送">
+                <a class="btn btn-theme btn-block cancel m-cancel" href="javascript:;" type="submit">
+                    取消
+               </a>
+              </div>
+          </div>
+      </form>
   </div>
   <!--header end-->
   <!-- **********************************************************************************************************************************************************
@@ -257,9 +216,9 @@
     <div id="sidebar" class="nav-collapse ">
       <!-- sidebar menu start-->
       <ul class="sidebar-menu" id="nav-accordion">
-        <p class="centered"><a href="profile.html"><img src="../../assets/img/ui-sam.jpg" class="img-circle"
-              width="80"></a></p>
-        <h5 class="centered">Sam Soffes</h5>
+        <p class="centered">
+          
+        </p>
         <li class="mt sub-menu">
           <a class=" active" data-url="home" href="#/home">
             <i class="fa fa-dashboard"></i>
@@ -305,4 +264,5 @@
     </div>
   </footer> -->
   <!--footer end-->
+  
 </section>

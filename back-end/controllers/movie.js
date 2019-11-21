@@ -67,6 +67,8 @@ const save = async (req,res,next)=>{
 
 const update = async(req,res,next)=>{
     let data = req.query
+    console.log(data);
+    
     if(req.filename === ''){
         delete data.movieLogo
     }

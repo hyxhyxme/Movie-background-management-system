@@ -31,6 +31,7 @@ const upload = multer({
 module.exports = (req,res,next)=>{
     upload(req,res,(err)=>{
         req.filename = filename
+        filename = ''
         next()
     })
 }

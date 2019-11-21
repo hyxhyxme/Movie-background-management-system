@@ -7,10 +7,18 @@
                     class="cmxform form-horizontal style-form" 
                     id="movie-form">
                     <div class="form-group ">
-                        <label for="movieLogo" class="control-label col-lg-2">电影宣传页</label>
-                        <div>
-                            <img style="width:64px;height:88px;" src="http://localhost:3000/uploads/{{item.movieLogo}}" alt="">
+                        <label for="movieID" class="control-label col-lg-2">电影ID</label>
+                        <div class="col-lg-10">
+                            <input class=" form-control" id="movieID" name="movieID" type="text" value="{{item.movieID}}"/>
                         </div>
+                    </div>
+                    <div class="form-group ">
+                        <div>
+                            <img style="width:64px;height:88px; margin-left:30px;" src="http://localhost:3000/uploads/{{item.movieLogo}}" alt="">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieLogo" class="control-label col-lg-2">电影宣传页</label>
                         <div class="col-lg-10">
                             <input type="file" class=" form-control" id="movieLogo" name="movieLogo" type="text" />
                         </div>
@@ -39,18 +47,22 @@
                             <input class="form-control " id="movieType" name="movieType" type="text" value="{{item.movieType}}"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">上映时间</label>
-                        <div class="col-md-4">
-                            <div data-date="2014-01-18T15:00:00Z" class="input-group date form_datetime-meridian">
-                                <input type="text" class="form-control" readonly="" size="16">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-theme02 date-reset"><i
-                                            class="fa fa-times"></i></button>
-                                    <button type="button" class="btn btn-theme date-set"><i
-                                            class="fa fa-calendar"></i></button>
-                                </div>
+                    <div class="form-group ">
+                            <label for="movieLiving" class="control-label col-lg-2">是否上映</label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="movieLiving" name="movieLiving" type="text" value="{{item.movieLiving}}" />
                             </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieWant" class="control-label col-lg-2">想看人数</label>
+                        <div class="col-lg-10">
+                            <input class="form-control " id="movieWant" name="movieWant" type="text" value="{{item.movieWant}}"/>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="movieInfo" class="control-label col-lg-2">上映信息</label>
+                        <div class="col-lg-10">
+                            <input class="form-control " id="movieInfo" name="movieInfo" type="text" value="{{item.movieInfo}}"/>
                         </div>
                     </div>
                     <input type="hidden" name="id" value="{{item._id}}" id="">

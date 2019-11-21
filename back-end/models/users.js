@@ -7,7 +7,12 @@ const save = (data)=>{
 const findOne= (conditons)=>{
     return Users.findOne(conditons)
 }
+
+const update = async (data)=>{
+    return await Users.findByIdAndUpdate(data.id,data)
+}
 module.exports = {
     save,
-    findOne
+    findOne,
+    update
 }

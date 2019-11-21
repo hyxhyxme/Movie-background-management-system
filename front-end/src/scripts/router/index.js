@@ -1,5 +1,6 @@
 import SMERouter from 'sme-router'
 import { home } from '../controllers/home'
+import { updateUser } from '../controllers/updateUser'
 import * as movie from '../controllers/movie'
 
 const router = new SMERouter('row')
@@ -12,6 +13,7 @@ router.use((req)=>{
 })
 
 router.route('/home',home)
+router.route('/updateUser',updateUser)
 router.route('/movie',movie.list)
 router.route('/movie_add',movie.add)
 router.route('/movie_update',movie.update)

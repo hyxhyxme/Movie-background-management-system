@@ -1,6 +1,8 @@
 const usersModel = require('../models/users')
 const tools = require('../utils/tools')
 const authMiddleware = require('../middlewares/auth')
+const fs = require('fs')
+const path = require('path')
 
 const isLogin = authMiddleware
 
@@ -36,7 +38,7 @@ const hasAccount = async function(req,res,next){
   let {account} = req.body
   let result = await usersModel.findOne({account})
   if(result){
-    res.render('succ',{
+    res.render('fail',{
       data:JSON.stringify({
         message:'该邮箱号已被注册'
       })
@@ -45,6 +47,66 @@ const hasAccount = async function(req,res,next){
     next()
   }
   
+}
+
+const findOne = async function(req,res,next){
+  res.set('Content-Type','application/json; charset=utf-8')
+  let { account } = req.query
+  
+  let result = await usersModel.findOne({account})
+ 
+  
+  if(result){
+    res.render('succ',{
+      data:JSON.stringify({
+        movieLogo : result.movieLogo,
+        account : result.account,
+        username : result.username,
+        _id : result._id
+      })
+    })
+  }
+  else { 
+    res.render('fail',{
+      data:JSON.stringify({
+        message : '该账号不存在'
+      })
+    })
+  }
+}
+
+const update = async function( req, res, next){
+  res.set('Content-Type','application/json; charset=utf-8')
+  let data = req.query
+  
+  console.log(data);
+  if(req.filename ===''){
+    delete data.movieLogo
+  }
+  else{
+    data.movieLogo = req.filename
+   
+    fs.unlink(path.resolve(__dirname,'../public/uploads/'+ data.tempLogo),(err)=>{
+      if(err){
+        console.log(err.message);
+      }
+    })
+  }
+  let result = await usersModel.update(data)
+  if(result){
+    res.render('succ',{
+      data : JSON.stringify({
+        message : '数据修改成功'
+      })
+    })
+  }
+  else{
+    res.render('fail',{
+      data :JSON.stringify({
+        message : '数据修改失败'
+      })
+    })
+  }
 }
 
 const login = async function(req,res,next){
@@ -66,6 +128,8 @@ const login = async function(req,res,next){
       data:JSON.stringify({
         message:'登录成功',
         username:result.username,
+        account : result.account,
+        movieLogo : result.movieLogo
       })
     })
    }
@@ -103,5 +167,7 @@ module.exports = {
     hasAccount,
     login,
     isLogin,
-    exit
+    exit,
+    findOne,
+    update
 }

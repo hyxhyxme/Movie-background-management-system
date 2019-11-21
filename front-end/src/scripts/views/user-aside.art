@@ -1,0 +1,12 @@
+<a href="#/updateUser?account={{account}}">
+    {{if movieLogo}}
+        <img src="http://localhost:3000/uploads/{{movieLogo}}" class="img-circle"width="80">
+    {{else}}
+        <img src="http://placehold.it/80x80" class="img-circle"width="80">
+    {{/if}}
+    {{if username}}
+        <h5 class="centered">{{username}}</h5>
+    {{else}}
+        <h5 class="centered">未登录</h5>
+    {{/if}}
+</a>

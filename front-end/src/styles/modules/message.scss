@@ -1,0 +1,55 @@
+.messages{
+    .message-show{
+        min-height:300px;
+        display: flex;
+        flex-direction: column;      
+        .message-content{
+            flex:1;
+            li{
+                width:100%;
+            }
+            .c-maoyan{
+                overflow: hidden;
+                span{
+                    padding: 3px 5px;
+                    background: yellowgreen;
+                    color:#fff
+                }
+                img{
+                    float:left;
+                }
+                span{
+                    float: left;
+                }
+            }
+            .c-houtai{
+                overflow: hidden;
+                span{
+                    padding: 3px 5px;
+                    background: rgb(223, 92, 158);
+                    color:#fff
+                }
+                img{
+                    float:right;
+                }
+                span{
+                    float: right;
+                }
+            }
+        }
+
+        .btns{
+            height:40px;
+            .send-content{
+                display:inline-block;
+                width:55%;
+                height:30px;
+            }
+            .m-cancel, .btn-send{
+                display: inline-block;
+                width:15%;
+                height: 30px;
+            }
+        }
+    }
+}

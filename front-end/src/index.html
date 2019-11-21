@@ -25,6 +25,7 @@
   <link href="./assets/css/style.css" rel="stylesheet">
   <link href="./assets/css/style-responsive.css" rel="stylesheet">
   <script src="./lib/chart-master/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
   <!-- =======================================================
     Template Name: Dashio
@@ -35,14 +36,17 @@
 </head>
 
 <body>
+
   <div id="root">
 
   </div>
-
   <!-- js placed at the end of the document so the pages load faster -->
+ 
   <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery.form.min.js"></script>
+ 
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
   <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
   <script src="lib/jquery.scrollTo.min.js"></script>
   <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
@@ -54,26 +58,9 @@
   <!--script for this page-->
   <script src="lib/sparkline-chart.js"></script>
   <script src="lib/zabuto_calendar.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      var unique_id = $.gritter.add({
-        // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
-        // (string | mandatory) the text inside the notification
-        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-        // (string | optional) the image to display on the left
-        image: './assets/img/ui-sam.jpg',
-        // (bool | optional) if you want it to fade out on its own or just sit there
-        sticky: false,
-        // (int | optional) the time you want it to be alive for before fading out
-        time: 8000,
-        // (string | optional) the class name you want to apply to that specific message
-        class_name: 'my-sticky-class'
-      });
-
-      return false;
-    });
-  </script>
+  <script src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script src="lib/advanced-form-components.js"></script>
   <script type="application/javascript">
     $(document).ready(function () {
       $("#date-popover").popover({
@@ -116,8 +103,8 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
+  <script src="lib/jquery.form.min.js"></script>
   <script src="./scripts/app.js"></script>
-
 </body>
 
 </html>

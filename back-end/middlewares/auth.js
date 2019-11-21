@@ -18,7 +18,8 @@ const isLogin = async function(req,res,next){
           data:JSON.stringify({
             message : '是登录状态',
             account : account,
-            username : result.username
+            username : result.username,
+            movieLogo: result.movieLogo
           })
         })
       }

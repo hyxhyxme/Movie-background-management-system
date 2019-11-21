@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var movieRouter = require('./routes/movie')
@@ -12,6 +13,31 @@ var cookieSession = require('cookie-session')
 const authMiddleware = require('./middlewares/auth')
 
 var app = express();
+
+//socket.io
+var server = require('http').createServer(app)
+var io = require('socket.io')(server)
+
+server.listen(80)
+io.on('connection',function(socket){
+  socket.on('houtai',function(data){
+    console.log(data);
+    //socket.emit('server','hello too!')
+    socket.broadcast.emit('server',data)
+  })
+  socket.on('maoyan',function(data){
+    console.log(data);
+    //socket.emit('server','hello too!')
+    socket.broadcast.emit('server',data)
+  })
+
+  socket.on('disconnect',function(data){
+    console.log('断开',data)
+    socket.emit('server','离开')
+  })
+})
+
+
 
 // view engine setup
 app.engine('art', require('express-art-template'));
